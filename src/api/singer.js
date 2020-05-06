@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-09 12:06:36
+ * @LastEditTime: 2020-04-13 16:09:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-music\src\api\singer.js
+ */
 import jsonp from 'common/js/jsonp'
 import { commonParams, options } from './config'
 

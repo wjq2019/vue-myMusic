@@ -1,8 +1,18 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-08 10:51:04
+ * @LastEditTime: 2020-04-11 13:48:06
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-music\src\App.vue
+ -->
 <template>
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

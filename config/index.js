@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-09 12:06:36
+ * @LastEditTime: 2020-04-12 14:55:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-music\config\index.js
+ */
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -10,7 +18,22 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: { //'http://localhost:8066/api/xxx' 代理到 'https://c.y.qq.com'
+      '/api/getDiscList': {
+        //target代表源地址
+        target: 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg',
+        //bypass代表访问源地址是提前设置的数据
+        bypass: function(req, res, proxyOptions){
+            req.headers.referer = 'https://c.y.qq.com';
+            req.headers.host = 'c.y.qq.com';
+        },
+        secure: false, //如果是https接口，需要配置这个参数
+        changeOrigin: true, //允许跨域
+        pathRewrite: {
+            '/api/getDiscList': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: '192.168.1.8', // can be overwritten by process.env.HOST
